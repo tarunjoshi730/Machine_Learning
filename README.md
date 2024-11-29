@@ -1,5 +1,3 @@
-<h1>ALL Machine Learning Practicals</h1>
-
 # 👋 Welcome to My GitHub!
 I’m Tarun Joshi, a 2nd-year MCA student passionate about Machine Learning, Full Stack Development, and Team Leadership.
 
