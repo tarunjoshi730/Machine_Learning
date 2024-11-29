@@ -1,0 +1,50 @@
+#   https://colab.research.google.com/drive/1o7Xs0tPmDfd4qfvvftsGauIRQGxqHjbp?usp=sharing
+
+# Import necessary libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import fetch_california_housing
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+# Load the California Housing dataset
+california = fetch_california_housing()
+X = california.data
+y = california.target
+
+# Selecting a feature for visualization (e.g., average number of rooms)
+# 'AveRooms' is the 3rd feature in the California Housing dataset (index 3)
+X_rooms = X[:, 3].reshape(-1, 1)
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X_rooms, y, test_size=0.2, random_state=42)
+
+# Train a Linear Regression model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Predict on the test set
+y_pred = model.predict(X_test)
+
+# Calculate evaluation metrics
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+r2 = r2_score(y_test, y_pred)
+
+# Print the evaluation metrics
+print(f"Mean Absolute Error (MAE): {mae}")
+print(f"Mean Squared Error (MSE): {mse}")
+print(f"Root Mean Squared Error (RMSE): {rmse}")
+print(f"R² Score: {r2}")
+
+# Plot the results
+plt.figure(figsize=(10, 6))
+plt.scatter(X_test, y_test, color='blue', label='Actual Prices')
+plt.plot(X_test, y_pred, color='red', linewidth=2, label='Predicted Prices')
+plt.xlabel('Average Number of Rooms (AveRooms)')
+plt.ylabel('House Price (in $100,000)')
+plt.title('Average Rooms vs House Price Prediction')
+plt.legend()
+plt.show()

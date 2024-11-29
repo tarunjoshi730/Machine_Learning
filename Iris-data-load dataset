@@ -1,0 +1,31 @@
+#   https://colab.research.google.com/drive/1RKvE6ojh6mARHuH_Naa84QUi1kxWzu_u?usp=sharing
+
+import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+# Step 1: Load the iris dataset
+iris = load_iris()
+X = iris.data  # Flower ke features (size, shape, etc.)
+y = iris.target  # Flower ka species (0, 1, ya 2)
+
+# Step 2: Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Step 3: Initialize the KNN classifier
+classifier = KNeighborsClassifier(n_neighbors=3)
+
+# Step 4: Train the classifier on the training data
+classifier.fit(X_train, y_train)
+
+# Step 5: Predict on the test data
+y_pred = classifier.predict(X_test)
+
+# Step 6: Calculate and print performance metrics
+print("Confusion Matrix:")
+print(confusion_matrix(y_test, y_pred))  # Predictions ka analysis karta hai
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))  # Detailed report dikhata hai
+print("\nAccuracy Score:", accuracy_score(y_test, y_pred))  # Overall accuracy batata 
