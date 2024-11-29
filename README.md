@@ -11,7 +11,7 @@ Team Player and Leader: Actively engaged in GDSC and IEEE events, honing my abil
 If you’re looking for someone who’s eager to grow and contribute to your ML projects or development team, feel free to reach out. I’m open to freelance projects, internships, and volunteering opportunities.
 
 🔗 How to Reach Me:
-# 📧 Email: [Your Email Address]
-# 💼 LinkedIn: [Your LinkedIn Profile]
+# 📧 Email: jtarun345@gmail.com
+# 💼 LinkedIn: https://www.linkedin.com/in/tarunjoshi0/
 
 Let’s build something amazing together! 🚀
